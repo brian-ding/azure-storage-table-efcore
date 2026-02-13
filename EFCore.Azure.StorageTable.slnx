@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="EFCore.Azure.StorageTable.Sample/EFCore.Azure.StorageTable.Sample.csproj" />
   <Project Path="EFCore.Azure.StorageTable/EFCore.Azure.StorageTable.csproj" />
 </Solution>
