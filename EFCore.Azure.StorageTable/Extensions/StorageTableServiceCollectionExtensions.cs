@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Diagnostics.Internal;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Infrastructure.Internal;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Query.Internal;
+using SoBrian.EntityFrameworkCore.Azure.StorageTable.Storage.Internal;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -16,6 +17,7 @@ public static class StorageTableServiceCollectionExtensions
         builder.TryAdd<LoggingDefinitions, StorageTableLoggingDefinitions>();
         builder.TryAdd<IDatabaseProvider, DatabaseProvider<StorageTableOptionsExtension>>();
         builder.TryAdd<IQueryContextFactory, StorageTableQueryContextFactory>();
+        builder.TryAdd<IDatabase, StorageTableDatabaseWrapper>();
         builder.TryAddCoreServices();
 
         return services;
