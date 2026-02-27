@@ -19,6 +19,7 @@ public static class StorageTableServiceCollectionExtensions
         builder.TryAdd<IQueryContextFactory, StorageTableQueryContextFactory>();
         builder.TryAdd<IDatabase, StorageTableDatabaseWrapper>();
         builder.TryAdd<ITypeMappingSource, StorageTableTypeMappingSource>();
+        builder.TryAdd<IQueryableMethodTranslatingExpressionVisitorFactory, StorageTableQueryableMethodTranslatingExpressionVisitorFactory>();
         builder.TryAddCoreServices();
 
         return services;
