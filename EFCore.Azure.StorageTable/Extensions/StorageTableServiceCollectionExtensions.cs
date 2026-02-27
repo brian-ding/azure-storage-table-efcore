@@ -20,6 +20,7 @@ public static class StorageTableServiceCollectionExtensions
         builder.TryAdd<IDatabase, StorageTableDatabaseWrapper>();
         builder.TryAdd<ITypeMappingSource, StorageTableTypeMappingSource>();
         builder.TryAdd<IQueryableMethodTranslatingExpressionVisitorFactory, StorageTableQueryableMethodTranslatingExpressionVisitorFactory>();
+        builder.TryAdd<IShapedQueryCompilingExpressionVisitorFactory, StorageTableShapedQueryCompilingExpressionVisitorFactory>();
         builder.TryAddCoreServices();
 
         return services;
