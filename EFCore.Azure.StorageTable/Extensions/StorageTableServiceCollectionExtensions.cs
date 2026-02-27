@@ -10,6 +10,7 @@ public static class StorageTableServiceCollectionExtensions
     public static IServiceCollection AddEntityFrameworkStorageTable(this IServiceCollection services)
     {
         var builder = new EntityFrameworkServicesBuilder(services);
+        builder.TryAdd<IDatabaseProvider, DatabaseProvider<StorageTableOptionsExtension>>();
         builder.TryAddCoreServices();
 
         return services;
