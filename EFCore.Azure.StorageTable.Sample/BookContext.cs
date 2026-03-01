@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SoBrian.EntityFrameworkCore.Azure.StorageTable;
 
 public class BookContext : DbContext
 {
@@ -12,6 +13,8 @@ public class BookContext : DbContext
 
 public class Book
 {
-    public int Id { get; set; }
+    [PartitionKey]
+    public string Author { get; set; }
+    [RowKey]
     public string Title { get; set; }
 }

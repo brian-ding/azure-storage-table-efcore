@@ -34,5 +34,5 @@ if (false)
 using var table = new BookContext();
 // Create
 Console.WriteLine("Inserting a new book");
-table.Add(new Book { Id = 1, Title = "Book 1" });
+table.Add(new Book { Author = "John Smith", Title = "Book 1" });
 await table.SaveChangesAsync();

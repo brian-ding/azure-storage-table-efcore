@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Diagnostics.Internal;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Infrastructure.Internal;
+using SoBrian.EntityFrameworkCore.Azure.StorageTable.Metadata.Conventions.Internal;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Query.Internal;
 using SoBrian.EntityFrameworkCore.Azure.StorageTable.Storage.Internal;
 
@@ -21,7 +23,8 @@ public static class StorageTableServiceCollectionExtensions
         builder.TryAdd<ITypeMappingSource, StorageTableTypeMappingSource>();
         builder.TryAdd<IQueryableMethodTranslatingExpressionVisitorFactory, StorageTableQueryableMethodTranslatingExpressionVisitorFactory>();
         builder.TryAdd<IShapedQueryCompilingExpressionVisitorFactory, StorageTableShapedQueryCompilingExpressionVisitorFactory>();
-        builder.TryAdd<IModelValidator, StorageTableModelValidator>();
+        // builder.TryAdd<IModelValidator, StorageTableModelValidator>();
+        builder.TryAdd<IProviderConventionSetBuilder, StorageTableConventionSetBuilder>();
         builder.TryAddCoreServices();
 
         return services;

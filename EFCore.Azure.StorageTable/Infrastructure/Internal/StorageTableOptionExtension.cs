@@ -6,9 +6,12 @@ namespace SoBrian.EntityFrameworkCore.Azure.StorageTable.Infrastructure.Internal
 
 public class StorageTableOptionsExtension : IDbContextOptionsExtension
 {
+    private DbContextOptionsExtensionInfo? _info;
+
     public string? ConnectionString { get; internal set; }
 
-    public DbContextOptionsExtensionInfo Info => new ExtensionInfo(this);
+    public DbContextOptionsExtensionInfo Info
+    => _info ??= new ExtensionInfo(this);
 
     public void ApplyServices(IServiceCollection services)
     {
