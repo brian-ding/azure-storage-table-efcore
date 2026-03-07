@@ -35,4 +35,5 @@ using var table = new BookContext();
 // Create
 Console.WriteLine("Inserting a new book");
 table.Add(new Book { Author = "John Smith", Title = "Book 1" });
-await table.SaveChangesAsync();
+var result = await table.SaveChangesAsync();
+Console.WriteLine($"Rows affected: {result}");

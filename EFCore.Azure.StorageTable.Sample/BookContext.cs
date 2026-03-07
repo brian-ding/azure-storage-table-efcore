@@ -15,6 +15,11 @@ public class Book
 {
     [PartitionKey]
     public string Author { get; set; }
+
     [RowKey]
     public string Title { get; set; }
+
+    public int Price { get; set; }
+
+    public string Year { get; set; }
 }
